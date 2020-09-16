@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 // const authRouter = require("../auth/auth-router.js");
-// const usersRouter = require("../users/users-router.js");
+const usersRouter = require('./users/users-router')
 // const restricted = require('../auth/restricted-middleware')
 // const checkRole = require("../auth/check-role-middleware")
 
@@ -16,8 +16,7 @@ server.use(
   })
 );
 
-// server.use("/api/auth", authRouter);
-// server.use("/api/users", usersRouter);
+server.use("/api", usersRouter);
 
 server.get("/", (req, res) => {
   res.json({ api: "up" });
